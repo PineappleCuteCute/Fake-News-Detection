@@ -8,7 +8,7 @@ app.use(express.static('Frontend'));
 app.use(express.json());
 
 // Thay đổi đường dẫn của tệp test.py
-const pythonScriptPath = "/Users/daomanh/Desktop/Fake News Detection/Backend/target/test.py";
+const pythonScriptPath = "/Users/daomanh/Desktop/Fake-News-Detection/Backend/target/test.py";
 
 
 // Đặt môi trường PYTHONPATH
