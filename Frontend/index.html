@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Fake News Detection</h1>
+    </header>
+
+    <main>
+      <textarea id="textInput" placeholder="Nhập văn bản bài báo"></textarea>
+      <button onclick="checkArticle()">Kiểm tra bài báo</button>
+
+      <div id="result"></div>
+    </main>
+  </div>
+
+  <script>
+    function checkArticle() {
+      const textInput = document.getElementById('textInput').value;
+  
+      // Gửi yêu cầu POST đến backend
+      fetch('http://localhost:3000/checkArticle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: textInput })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Hiển thị kết quả từ server
+        console.log(data);
+        document.getElementById('result').innerText = data.result;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>  
+</body>
+</html>

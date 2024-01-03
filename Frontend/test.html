@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News Detection</title>
+  <link rel="stylesheet" href="styletest.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Fake News Detection</h1>
+  </header>
+
+  <main class="main">
+    <section class="feature-section">
+      <img src="images/newspaper.png" alt="Tờ báo">
+      <h2>Kiểm tra tính xác thực của tin tức</h2>
+      <p>Với Fake News Detection, bạn có thể dễ dàng kiểm tra tính xác thực của tin tức trước khi chia sẻ.</p>
+    </section>
+
+    <section class="feature-section">
+      <img src="images/people-reading.png" alt="Người đọc báo">
+      <h2>Tính năng chính</h2>
+      <ul>
+        <li>Kiểm tra tính chính xác của thông tin</li>
+        <li>Phát hiện tin giả</li>
+        <li>Tìm kiếm thông tin tin cậy</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+    <textarea id="textInput" placeholder="Nhập văn bản bài báo"></textarea>
+      <button onclick="checkArticle()">Kiểm tra bài báo</button>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Copyright &copy; 2024</p>
+  </footer>
+
+  <script>
+    function checkArticle() {
+      const textInput = document.getElementById('textInput').value;
+  
+      // Gửi yêu cầu POST đến backend
+      fetch('http://localhost:3000/checkArticle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: textInput })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Hiển thị kết quả từ server
+        console.log(data);
+        document.getElementById('result').innerText = data.result;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>  
+</body>
+</html>
