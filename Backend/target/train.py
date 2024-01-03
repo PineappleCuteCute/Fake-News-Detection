@@ -6,7 +6,7 @@ from keras.layers import Embedding, Conv1D, MaxPooling1D, GlobalMaxPooling1D, De
 
 
 # Đường dẫn đến tệp txt
-file_path = "/Users/daomanh/Desktop/fakenew/data/train_sentences.txt"
+file_path = "/Users/daomanh/Desktop/Fake News Detection/Backend/data/train_sentences.txt"
 
 # Mở tệp và đọc nội dung vào biến
 with open(file_path, 'r', encoding='utf-8') as file:
@@ -20,7 +20,7 @@ train_setences = np.array(lines)
 train_setences = np.delete(train_setences, -1)
 
 
-file_path="/Users/daomanh/Desktop/fakenew/data/test_sentences.txt"
+file_path="/Users/daomanh/Desktop/Fake News Detection/Backend/data/test_sentences.txt"
 with open(file_path, 'r', encoding='utf-8') as file:
     content = file.read()
 
