@@ -4,14 +4,15 @@ const path = require('path');  // Thêm đoạn này để sử dụng module pa
 const app = express();
 const port = 3000;
 
+//Kết nối tới Frontend
 app.use(express.static('Frontend'));
 app.use(express.json());
 
-// Thay đổi đường dẫn của tệp test.py
+//Kết nối tới Backend
 const pythonScriptPath = "/Users/daomanh/Desktop/Fake-News-Detection/Backend/target/test.py";
 
 
-// Đặt môi trường PYTHONPATH
+// Đặt môi trường PYTHONPATH kết nối tới thư viện python
 process.env.PYTHONPATH = "/Library/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python"; // Thay thế "/đường/dẫn/tới/python/lib" bằng đường dẫn thực tế
 console.log('Môi trường thực thi Python:', process.env.PYTHONPATH);
 
