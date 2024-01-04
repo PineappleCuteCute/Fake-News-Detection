@@ -8,6 +8,10 @@ body {
   color: #fff;
   text-align: center;
   padding: 10px;
+  font-size: xxx-large;
+  display: flex;
+  justify-content: center;
+  width: 156.5%;
 }
 
 .main {
@@ -60,4 +64,11 @@ body {
   padding: 10px;
   background-color: #333;
   color: #fff;
+}
+
+.main{
+  
+}
+.row {
+  width: 100%;
 }
