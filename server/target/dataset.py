@@ -16,8 +16,8 @@ def wordopt(text):
     return text
 
 
-df_fake = pd.read_csv("/Users/daomanh/Desktop/Fake-News-Detection/Backend/dataset/True.csv")
-df_true = pd.read_csv("/Users/daomanh/Desktop/Fake-News-Detection/Backend/dataset/Fake.csv")
+df_fake = pd.read_csv("/Users/daomanh/Desktop/Fake-News-Detection/server/dataset/True.csv")
+df_true = pd.read_csv("/Users/daomanh/Desktop/Fake-News-Detection/server/dataset/Fake.csv")
 
 
 df_fake["class"] = 0
@@ -48,9 +48,9 @@ test_labels = test_labels.astype(int32)
 
 
 # Lưu mảng vào tệp
-np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/Backend/data/train_sentences.txt", train_sentences, fmt="%s", encoding='utf-8')
-np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/Backend/data/test_sentences.txt", test_sentences, fmt="%s", encoding='utf-8')
-np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/Backend/data/train_labels.txt", train_labels, fmt="%d", encoding='utf-8')
-np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/Backend/data/test_labels.txt", train_labels, fmt="%d", encoding='utf-8')
+np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/server/data/train_sentences.txt", train_sentences, fmt="%s", encoding='utf-8')
+np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/server/data/test_sentences.txt", test_sentences, fmt="%s", encoding='utf-8')
+np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/server/data/train_labels.txt", train_labels, fmt="%d", encoding='utf-8')
+np.savetxt("/Users/daomanh/Desktop/Fake-News-Detection/server/data/test_labels.txt", train_labels, fmt="%d", encoding='utf-8')
 
 

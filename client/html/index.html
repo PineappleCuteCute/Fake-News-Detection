@@ -497,7 +497,8 @@
                     if (t.indexOf(e[a]) > -1)
                         return "data not allowed";
                 n = (((n || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join("");
-                return o.replace(/<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi, "").replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, (function(o, e) {
+                return o.replace(/<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi, "").replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi
+                 (function(o, e) {
                     return n.indexOf("<" + e.toLowerCase() + ">") > -1 ? o : ""
                 }
                 ))

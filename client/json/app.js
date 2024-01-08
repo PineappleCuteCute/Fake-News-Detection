@@ -9,7 +9,7 @@ app.use(express.static('Frontend'));
 app.use(express.json());
 
 //Kết nối tới Backend
-const pythonScriptPath = "/Users/daomanh/Desktop/Fake-News-Detection/Backend/target/test.py";
+const pythonScriptPath = "/Users/daomanh/Desktop/Fake-News-Detection/server/target/test.py";
 
 
 // Đặt môi trường PYTHONPATH kết nối tới thư viện python

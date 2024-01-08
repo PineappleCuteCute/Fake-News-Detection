@@ -15,13 +15,13 @@ def kiem_tra_text():
     # Thực hiện xử lý kiểm tra với input_text ở đây
     # Ví dụ: In kết quả ra terminal
     new_texts = [input_text]
-    with open("/Users/daomanh/Desktop/Fake-News-Detection/Backendtokenizer.pkl", "rb") as file:
+    with open("/Users/daomanh/Desktop/Fake-News-Detection/server/Backendtokenizer.pkl", "rb") as file:
         tokenizer = pickle.load(file)
     new_sequences = tokenizer.texts_to_sequences(new_texts)
     new_padded_sequences = pad_sequences(new_sequences, maxlen=1000, padding='post')
 
     # Đường dẫn đến tệp tin mô hình .h5
-    model_path = "/Users/daomanh/Desktop/Fake-News-Detection/BackendFakeNewDetectionCNN16layers.h5"
+    model_path = "/Users/daomanh/Desktop/Fake-News-Detection/server/BackendFakeNewDetectionCNN16layers.h5"
 
     # Tải mô hình từ tệp tin
     model = load_model(model_path)
