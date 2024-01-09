@@ -76,6 +76,52 @@
 
 <![endif]-->
 </head>
+
+<!-- Thêm đoạn mã JavaScript vào cuối phần head hoặc trước thẻ body kết thúc -->
+<script>
+    // Hiển thị thông điệp "Môi trường thực thi Python" và "Máy chủ đang chạy tại http://localhost:3000"
+    document.addEventListener('DOMContentLoaded', function () {
+      const pythonEnvironment = document.getElementById('pythonEnvironment');
+      pythonEnvironment.innerText = 'Môi trường thực thi Python: ' + process.env.PYTHONPATH;
+  
+      const serverRunning = document.getElementById('serverRunning');
+      serverRunning.innerText = 'Máy chủ đang chạy tại http://localhost:3000';
+    });
+  
+    function checkArticle() {
+      const textInput = document.getElementById('textInput').value;
+  
+      // Gửi yêu cầu POST đến backend
+      fetch('http://localhost:3000/checkArticle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: textInput })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Hiển thị kết quả từ server
+        console.log(data);
+  
+        // Hiển thị kết quả trên trang HTML dưới khung chứa ô kiểm tra bài báo
+        const resultContainer = document.getElementById('resultContainer');
+        resultContainer.innerHTML = '<div id="result">Kết quả: ' + data.result + '</div>';
+  
+        // Thêm đoạn mã dưới để hiển thị kết quả từ terminal
+        const terminalResult = document.getElementById('terminalResult');
+        terminalResult.innerText = 'Kết quả: ' + data.result;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+  
+  <!-- Thêm div để chứa kết quả -->
+  <div id="resultContainer"></div>
+  <div id="terminalResult"></div>
+  
 <body>
 
     <!--css-->
